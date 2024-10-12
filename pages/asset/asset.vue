@@ -1,35 +1,38 @@
 <template>
 	<view id="container">
-		<u-table id="table" align="left">
-			<u-tr>
-				<u-th width="25%">字段</u-th>
-				<u-th>值</u-th>
-			</u-tr>
-			<u-tr>
-				<u-td width="25%">资产编号</u-td>
-				<u-td>{{asset.asset_number}}</u-td>
-			</u-tr>
-			<u-tr>
-				<u-td width="25%">名称</u-td>
-				<u-td>{{asset.name}}</u-td>
-			</u-tr>
-			<u-tr>
-				<u-td width="25%">序列号</u-td>
-				<u-td>{{asset.sn}}</u-td>
-			</u-tr>
-			<u-tr>
-				<u-td width="25%">规格</u-td>
-				<u-td>{{asset.specification}}</u-td>
-			</u-tr>
-			<u-tr>
-				<u-td width="25%">品牌</u-td>
-				<u-td>{{asset.brand.name}}</u-td>
-			</u-tr>
-			<u-tr>
-				<u-td width="25%">分类</u-td>
-				<u-td>{{asset.category.name}}</u-td>
-			</u-tr>
-		</u-table>
+    <uni-table border stripe emptyText="暂无更多数据" >
+      <!-- 表头行 -->
+      <uni-tr>
+        <uni-th align="center">字段</uni-th>
+        <uni-th align="center">值</uni-th>
+      </uni-tr>
+      <!-- 表格数据行 -->
+      <uni-tr>
+        <uni-td>资产编号</uni-td>
+        <uni-td>{{asset.asset_number}}</uni-td>
+      </uni-tr>
+      <uni-tr>
+        <uni-td>名称</uni-td>
+        <uni-td>{{asset.name}}</uni-td>
+      </uni-tr>
+      <uni-tr>
+        <uni-td>序列号</uni-td>
+        <uni-td>{{asset.sn}}</uni-td>
+      </uni-tr>
+      <uni-tr>
+        <uni-td>规格</uni-td>
+        <uni-td>{{asset.specification}}</uni-td>
+      </uni-tr>
+      <uni-tr>
+        <uni-td>品牌</uni-td>
+        <uni-td>{{asset.vendor.name}}</uni-td>
+      </uni-tr>
+      <uni-tr>
+        <uni-td>分类</uni-td>
+        <uni-td>{{asset.category.name}}</uni-td>
+      </uni-tr>
+
+    </uni-table>
 	</view>
 </template>
 
@@ -40,7 +43,7 @@
 				asset_number: '',
 				token: '',
 				asset: {
-					brand: {
+					vendor: {
 						name: ''
 					},
 					category: {

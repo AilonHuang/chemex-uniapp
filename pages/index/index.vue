@@ -8,7 +8,7 @@
 </style>
 <template>
 	<view>
-		<u-notice-bar mode="vertical" :list="['当前版本：1.0.0']" type="success"></u-notice-bar>
+		<u-notice-bar mode="vertical" :text="'当前版本：1.0.0'" type="success"></u-notice-bar>
 		<view class="nav-wrap">
 			<view class="nav-title">
 				<image class="logo" src="../../static/logo.png" mode="widthFix"></image>
@@ -186,6 +186,6 @@
 	.grid-text {
 		font-size: 30upx;
 		margin-top: 20upx;
-		color: $u-type-info;
+		//color: $u-type-info;
 	}
 </style>

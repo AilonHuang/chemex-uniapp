@@ -3,7 +3,7 @@
 		<view class="top"></view>
 		<view class="content">
 			<view class="title">欢迎使用 CAT</view>
-			<u-input class="u-border-bottom" type="text" :focus="true" v-model="user.email" placeholder="请输入帐户" />
+			<u-input class="u-border-bottom" type="text" :focus="true" v-model="user.username" placeholder="请输入帐户" />
 			<u-input class="u-border-bottom" style="margin-top: 20px;" type="password" v-model="user.password"
 				placeholder="请输入密码" />
 			<view class="tips">如果您是第一次使用，请先设置服务器</view>
@@ -19,7 +19,7 @@
 		data() {
 			return {
 				user: {
-					email: '',
+					username: '',
 					password: '',
 					name: ''
 				},
@@ -27,6 +27,7 @@
 			}
 		},
 		onLoad() {
+			uni.setStorageSync('server', 'http://chemex.huangyilun.com')
 			this.getServer();
 			this.getAccessToken();
 		},
@@ -104,7 +105,7 @@
 				uni.request({
 					method: 'POST',
 					data: {
-						email: that.user.email,
+						username: that.user.username,
 						password: that.user.password,
 						device_name: "dev-device"
 					},
@@ -112,7 +113,7 @@
 					success: function(res) {
 						console.log(res);
 						if (res.statusCode == 200) {
-							that.token = res.data.token;
+							that.token = res.data.access_token;
 							uni.setStorage({
 								key: 'token',
 								data: 'Bearer ' + that.token,
@@ -181,7 +182,7 @@
 			}
 
 			.tips {
-				color: $u-type-info;
+				//color: $u-type-info;
 				margin-bottom: 60rpx;
 				margin-top: 8rpx;
 			}
@@ -227,7 +228,7 @@
 				color: $u-tips-color;
 
 				.link {
-					color: $u-type-warning;
+					//color: $u-type-warning;
 				}
 			}
 		}

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App'
-import uView from "uview-ui"
+import uView from '@/uni_modules/uview-ui'
 
 Vue.use(uView)
 
